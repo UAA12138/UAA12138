@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>button</title>
+</head>
+
+<body>
+<button id="btn1">开</button>
+<button id="btn2">关</button>
+<p id="varDisplay"></p>
+<script>
+document.getElementById('btn1').addEventListener('click', function() {
+  var value = '开';
+  localStorage.setItem('varValue', value); // 保存变量的值到本地存储
+  document.getElementById('varDisplay').innerText = value; // 更新页面上的变量显示
+});
+	
+// 监听按钮2的点击事件
+document.getElementById('btn2').addEventListener('click', function() {
+  var value = '关';
+  localStorage.setItem('varValue', value); // 保存变量的值到本地存储
+  document.getElementById('varDisplay').innerText = value; // 更新页面上的变量显示
+});
+	// 检查本地存储中的变量值
+var savedValue = localStorage.getItem('varValue');
+if (savedValue) {
+  document.getElementById('varDisplay').innerText = savedValue;
+}
+</script>
+</body>
+</html>
