@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>light</title>
+<style type="text/css">
+ @media (max-width: 1400px) {
+        body {
+            width: 1300px;
+            height: 800px;
+        }
+    }
+</style>
+<script>
+	var A320 = localStorage.getItem('varValue');
+if (A320) {
+  document.getElementById('varDisplay').innerText = A320;
+}
+</script>
+</head>
+<body style="background-image: url(HUST%20BACK.png); background-repeat: no-repeat;background-attachment:scroll;background-size: cover;">
+
+<img src="title.png" width="1280" height="97" alt="" style="position: absolute; left: -640px; top:0px; margin-left: 50%;"/>
+	<img src="色块.png" width="215" height="645" alt="" style="position: absolute; left: -640px; top:102px; margin-left: 50%;"/>
+<img src="white.png" width="1060" height="645" alt="" style="position: absolute; left: -420px; top:102px; margin-left: 50%;opacity: 0.75;z-index: -1"/>
+	
+<h1 style="position: absolute; left: -200px; top:160px; margin-left: 50%;">通过以下按键，您可以控制A320会议室的灯光</h1>
+	<p id="varDisplay" style="position: absolute; left: 20px; top: 300px; margin-left: 50%;"></p>
+   <form action="LED1-Control">
+   <input id="A320on" type="submit" value="开启灯光" style="position: absolute; left: 20px; top: 300px; margin-left: 50%; width: 200px; height: 50px;">
+   </form>
+   <br>
+   <form action="LED2-Control">
+   <input id="A320off" type="submit" value="关闭灯光" style="position: absolute; left: 20px; top: 375px; margin-left: 50%; width: 200px; height: 50px;">
+   </form>
+   <br>
+   <form action="index.html">
+	<input type="submit" value="返回首页" style="position: absolute; left: 20px; top: 450px; margin-left: 50%; width: 200px; height: 50px;">
+   </form>
+	
+   <script>
+document.getElementById('A320on').addEventListener('click', function() {
+  var value = '开';
+  localStorage.setItem('varValue', value); // 保存变量的值到本地存储
+  document.getElementById('varDisplay').innerText = value; // 更新页面上的变量显示
+});
+	
+document.getElementById('A320off').addEventListener('click', function() {
+  var value = '关';
+  localStorage.setItem('varValue', value); // 保存变量的值到本地存储
+  document.getElementById('varDisplay').innerText = value; // 更新页面上的变量显示
+});
+	// 检查本地存储中的变量值
+var savedValue = localStorage.getItem('varValue');
+if (savedValue) {
+  document.getElementById('varDisplay').innerText = savedValue;
+}
+</script>
+	
+	<table width="215" border="0" style="position: absolute; left: -640px; top:140px; margin-left: 50%;">
+  <tbody>
+    <tr>
+      <td height="50" align="center" valign="middle"><strong><font color="white">&nbsp;会议室灯光管理</font></strong></td>
+    </tr>
+    <tr>
+      <td height="50" align="center" valign="middle"><strong><font color="white">&nbsp;办公室灯光管理</font></strong></td>
+    </tr>
+    <tr>
+      <td height="50" align="center" valign="middle"><strong><font color="white">&nbsp;实验室灯光管理</font></strong></td>
+    </tr>
+	  <tr>
+      <td height="50" align="center" valign="middle"><strong><font color="white">&nbsp;公共区域灯光管理</font></strong></td>
+    </tr>
+  </tbody>
+</table>
+	<table width="330" border="0" style="position: absolute; left: -420px; top:125px; margin-left: 50%;">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle"><strong><font color="blue">&nbsp;<a href="index.html">首页</a></font></strong></td>
+      <td align="center" valign="middle"><strong><font color="blue">&nbsp;&gt;&gt;</font></strong></td>
+      <td align="center" valign="middle"><strong><font color="blue">&nbsp;会议室灯光管理</font></strong></td>
+    </tr>
+  </tbody>
+</table>
+	
+</body>
+</html>
